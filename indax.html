@@ -1,1 +1,44 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>টেলিগ্রাম মিনিঅ্যাপ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>স্বাগতম আমার মিনিঅ্যাপে</h1>
+    <p id="user-info">তথ্য লোড হচ্ছে...</p>
+    <button id="sendMessageButton">বার্তা পাঠান</button>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        const tg = window.Telegram.WebApp;
+        document.getElementById('user-info').innerHTML = 
+            `হ্যালো, ${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}!`;
+
+        document.getElementById('sendMessageButton').addEventListener('click', function() {
+            tg.sendData("বার্তা পাঠানো হয়েছে!");
+        });
+    </script>
+</body>
+</html>
